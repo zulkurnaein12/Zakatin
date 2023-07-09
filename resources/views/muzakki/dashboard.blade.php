@@ -196,12 +196,12 @@
                                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                                         @if (Auth::user()->avatar)
                                             <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Profile"
-                                                class="rounded-circle mb-1" width="60px" />
+                                                class="rounded-circle mb-3" width="60px" />
                                         @else
                                             <img src="{{ asset('nice') }}/assets/img/profile-img.jpg" alt="Profile"
                                                 class="rounded-circle">
                                         @endif
-                                        <h6>{{ Auth::user()->name }}</h6>
+                                        <h7>{{ Auth::user()->name }}</h7>
                                     </div>
                                 </div>
                             </div>

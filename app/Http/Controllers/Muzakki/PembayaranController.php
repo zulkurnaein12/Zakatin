@@ -55,12 +55,18 @@ class PembayaranController extends Controller
     public function callback(Request $request)
     {
         $serverKey = config('midtrans.server_key');
-        $hashed = hash("sha512", $request->pembayaran->id . $request->status_code . $request->gross_amount . $serverKey);
+        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
             if ($request->transaction_status == 'capture') {
-                $pembayaran = Pembayaran::find($request->pembayaran_id);
+                $pembayaran = Pembayaran::find($request->order_id);
                 $pembayaran->update(['status' => 'paid']);
             }
         }
+    }
+
+    public function invoice($id)
+    {
+        $pembayaran = Pembayaran::find($id);
+        return view('muzakki.pembayaran.detail', compact('pembayaran'));
     }
 }

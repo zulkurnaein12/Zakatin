@@ -77,10 +77,10 @@
                             <li class="dropdown-header">
                                 @if (Auth::user()->avatar)
                                     <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Profile"
-                                        class="rounded-circle mx-auto d-block mb-2" width="60px" />
+                                        class="rounded-circle" width="60px" />
                                 @else
                                     <img src="{{ asset('nice') }}/assets/img/profile-img.jpg" alt="Profile"
-                                        class="rounded-circle mx-auto d-block mb-2">
+                                        class="rounded-circle">
                                 @endif
                                 <h6 class="text-center"><strong>{{ Auth::user()->name }}</strong></h6>
                             </li>
@@ -281,7 +281,18 @@
                             <div class="col-lg-3 col-md-4 label">Total Pembayaran</div>
                             <div class="col-lg-9 col-md-8">Rp {{ number_format($pembayaran->total_uang, 2) }}</div>
                         </div>
-                        <button id="pay-button" class="btn btn-primary">Bayar Sekarang</button>
+                        <div class="row mb-3">
+                            <div class="col-lg-3 col-md-4 label">Status</div>
+                            <div class="col-lg-9 col-md-8">
+                                @if ($pembayaran->status == 'paid')
+                                    <span class="badge bg-success text-light"
+                                        style="font-size: 13px">{{ $pembayaran->status }}</span>
+                                @elseif ($pembayaran->status == 'unpaid')
+                                    <span class="badge bg-danger text-light"
+                                        style="font-size: 13px">{{ $pembayaran->status }}</span>
+                                @endif
+                            </div>
+                        </div>
                         <a class="btn btn-success" name="" id=""
                             href="{{ route('muzakki.dashboard') }}">Back</a>
                     </div>
