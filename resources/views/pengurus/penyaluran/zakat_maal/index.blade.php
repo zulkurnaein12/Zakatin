@@ -18,7 +18,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Zakat Fitrah</h4>
+                        <h4 class="card-title">Zakat Maal</h4>
                         <br>
                         <div class="table-responsive">
                             <table id="myDataTable" class="table datatable">

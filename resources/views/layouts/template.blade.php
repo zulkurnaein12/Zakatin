@@ -47,7 +47,7 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse"
                             href="#">
-                            <i class="align-middle" data-feather="folder"></i><span>Zakat</span><i
+                            <i class="align-middle" data-feather="folder"></i><span>Pembayaran Zakat</span><i
                                 class="bi bi-chevron-down ms-auto"></i>
                         </a>
                         <ul id="components-nav" class="sidebar-dropdown list-unstyled collapse"
@@ -67,6 +67,28 @@
                         </ul>
                     </li><!-- End Components Nav -->
                     <li class="sidebar-item">
+                        <a class="sidebar-link collapsed" data-bs-target="#components-nav1" data-bs-toggle="collapse"
+                            href="#">
+                            <i class="align-middle" data-feather="folder"></i><span>Penerimaan Zakat</span><i
+                                class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul id="components-nav1" class="sidebar-dropdown list-unstyled collapse"
+                            data-bs-parent="#sidebar-nav">
+                            <li>
+                                <a class="sidebar-link {{ Request()->routeIs('admin.penerimaanberas.*') ? '' : 'collapsed' }}"
+                                    href="{{ route('admin.penerimaanberas.index') }}">
+                                    <i class="align-middle" data-feather="arrow-right"></i><span>Zakat Fitrah</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidebar-link {{ Request()->routeIs('admin.penerimaanuang.*') ? '' : 'collapsed' }}"
+                                    href="{{ route('admin.penerimaanuang.index') }}">
+                                    <i class="align-middle" data-feather="arrow-right"></i><span>Zakat Maal</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li><!-- End Components Nav -->
+                    <li class="sidebar-item">
                         <a class="sidebar-link collapsed" data-bs-target="#component-nav" data-bs-toggle="collapse"
                             href="#">
                             <i class="align-middle" data-feather="folder"></i><span>Laporan</span>
@@ -74,19 +96,13 @@
                         <ul id="component-nav" class="sidebar-dropdown list-unstyled collapse"
                             data-bs-parent="#sidebar-nav">
                             <li>
-                                <a class="sidebar-link" href="component-alerts.html">
+                                <a class="sidebar-link" href="{{ route('admin.laporan') }}">
                                     <i class="align-middle" data-feather="arrow-right"></i><span>Data Pembayaran</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="sidebar-link" href="component-accordion.html">
+                                <a class="sidebar-link" href="{{ route('admin.penerimaan') }}">
                                     <i class="align-middle" data-feather="arrow-right"></i><span>Data Penerimaan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="sidebar-link" href="component-accordion.html">
-                                    <i class="align-middle" data-feather="arrow-right"></i><span>Data Keuangan
-                                        Zakat</span>
                                 </a>
                             </li>
                         </ul>
@@ -110,78 +126,6 @@
                 </a>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav navbar-align">
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown"
-                                data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <i class="align-middle" data-feather="bell"></i>
-                                    <span class="indicator">4</span>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
-                                aria-labelledby="alertsDropdown">
-                                <div class="dropdown-menu-header">
-                                    4 New Notifications
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-danger" data-feather="alert-circle"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Update completed</div>
-                                                <div class="text-muted small mt-1">Restart server 12 to complete
-                                                    the
-                                                    update.</div>
-                                                <div class="text-muted small mt-1">30m ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-warning" data-feather="bell"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Lorem ipsum</div>
-                                                <div class="text-muted small mt-1">Aliquam ex eros, imperdiet
-                                                    vulputate
-                                                    hendrerit et.</div>
-                                                <div class="text-muted small mt-1">2h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-primary" data-feather="home"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Login from 192.186.1.8</div>
-                                                <div class="text-muted small mt-1">5h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-success" data-feather="user-plus"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">New connection</div>
-                                                <div class="text-muted small mt-1">Christina accepted your request.
-                                                </div>
-                                                <div class="text-muted small mt-1">14h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown-menu-footer">
-                                    <a href="#" class="text-muted">Show all notifications</a>
-                                </div>
-                            </div>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
                                 data-bs-toggle="dropdown">

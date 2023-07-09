@@ -5,7 +5,7 @@
     <div class="container-fluid p-0">
         <div class="row mb-2 mb-x1-3">
             <div class="col-auto d-none d-sm-block mb-3">
-                <h3><strong>Zakat Maal</strong></h3>
+                <h3><strong>Pembayaran Zakat Maal</strong></h3>
             </div>
         </div>
         <!-- ============================================================== -->

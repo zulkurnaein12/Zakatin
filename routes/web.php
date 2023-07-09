@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\LaporanPembayaranController;
+use App\Http\Controllers\Admin\LaporanPenerimaanController;
 use App\Http\Controllers\Admin\MustahiqController;
 use App\Http\Controllers\Admin\MuzakkiController;
 use App\Http\Controllers\Admin\PasswordController;
+use App\Http\Controllers\Admin\PDFController;
+use App\Http\Controllers\Admin\PenerimaanberasController;
+use App\Http\Controllers\Admin\PenerimaanuangController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ZakatFitrahController as AdminZakatFitrahController;
@@ -41,6 +46,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
 Auth::routes();
 
 Route::middleware('role:admin')->name('admin.')->prefix('admin')->group(function () {
@@ -54,6 +60,11 @@ Route::middleware('role:admin')->name('admin.')->prefix('admin')->group(function
     Route::resource('mustahiq', MustahiqController::class);
     Route::resource('zakafitrah', AdminZakatFitrahController::class);
     Route::resource('zakatmaal', AdminZakatMaalController::class);
+    Route::get('/laporan', [LaporanPembayaranController::class, 'index'])->name('laporan');
+    Route::get('/laporanPenerimaan', [LaporanPenerimaanController::class, 'index'])->name('penerimaan');
+    Route::resource('penerimaanberas', PenerimaanberasController::class);
+    Route::resource('penerimaanuang', PenerimaanuangController::class);
+    Route::get('pdf/generate', [PDFController::class, 'generatePDF'])->name('pdf.generate');
 });
 
 Route::middleware('role:pengurus')->name('pengurus.')->prefix('pengurus')->group(function () {

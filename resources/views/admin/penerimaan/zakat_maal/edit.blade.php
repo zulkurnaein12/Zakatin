@@ -1,8 +1,8 @@
-@extends('layouts.template_pengurus')
+@extends('layouts.template')
 
 @section('content')
     <div class="pagetitle">
-        <h1 class="mb-3">Zakat Maal</h1>
+        <h1 class="mb-3">Penerimaan Zakat Maal</h1>
     </div>
 
     <section class="section">
@@ -10,7 +10,7 @@
             <div class="card-body">
                 <h4 class="card-title">Form edit Penyaluran</h4>
                 <form enctype="multipart/form-data" class="bg-white shadow-sm p-3"
-                    action="{{ route('pengurus.penerimaanzakatmaal.update', [$zakatmaal->id]) }}" method="POST">
+                    action="{{ route('admin.penerimaanuang.update', [$zakatmaal->id]) }}" method="POST">
                     @csrf
                     @if (@$zakat)
                         @method('PUT')

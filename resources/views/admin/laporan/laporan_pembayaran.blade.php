@@ -5,7 +5,10 @@
     <div class="container-fluid p-0">
         <div class="row mb-2 mb-x1-3">
             <div class="col-auto d-none d-sm-block mb-3">
-                <h3><strong>Pembayaran Zakat Fitrah</strong></h3>
+                <h3><strong>Laporan Pembayaran Zakat</strong></h3>
+            </div>
+            <div class="col-auto ms-auto text-end mt-n1">
+                <a href="{{ route('admin.pdf.generate') }}" class="btn btn-success">Generate PDF</a>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -15,7 +18,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Zakat Fitrah</h4>
+                        <h4 class="card-title">Zakat Fitrah Dan Zakat Maal</h4>
                         <br>
                         <div class="table-responsive">
                             <table id="myDataTable" class="table datatable">
@@ -26,8 +29,8 @@
                                         <th th scope="col">Tanggal Penerimaan</th>
                                         <th th scope="col">Jenis Zakat</th>
                                         <th th scope="col">Total Beras</th>
+                                        <th th scope="col">Total Uang</th>
                                         <th th scope="col">Keterangan</th>
-                                        <th th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,23 +40,24 @@
                                             <td>{{ $zakat->nama }}</td>
                                             <td>{{ $zakat->created_at->format('d M Y') }}</td>
                                             <td>{{ $zakat->jenja }}</td>
-                                            <td>{{ $zakat->total_beras }} Kg</td>
-                                            <td>{{ $zakat->ket }}</td>
                                             <td>
-                                                <a name="" role="button" class="btn btn-success"
-                                                    href="{{ route('admin.zakafitrah.edit', $zakat->id) }}">
-                                                    <i class="align-middle" data-feather="edit"></i></a>
-                                                <a role="button" href="{{ route('admin.zakafitrah.destroy', $zakat->id) }}"
-                                                    data-confirm-delete="true" class="btn btn-danger"><i
-                                                        class="align-middle" data-feather="trash"></i></a>
+                                                @if ($zakat->total_beras)
+                                                    {{ $zakat->total_beras }} Kg
+                                                @else
+                                                    0 Kg
+                                                @endif
                                             </td>
+                                            <td>Rp {{ number_format($zakat->total_uang, 2) }}</td>
+                                            <td>{{ $zakat->ket }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="6">Total</th>
-                                        <td><strong>{{ $total }} Kg</strong></td>
+                                        <th colspan="2">Total Beras Terkumpul</th>
+                                        <td><strong>{{ $totalBeras }} Kg</strong></td>
+                                        <th colspan="3">Total Uang Terkumpul</th>
+                                        <td><strong>Rp {{ number_format($totalUang, 2) }}</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>
