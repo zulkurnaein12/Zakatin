@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = User::findOrFail(Auth::id());
-        return view('pengurus.dashboard', compact('user'));
+        return view('pengurus.profile.index', compact('user'));
     }
 
 

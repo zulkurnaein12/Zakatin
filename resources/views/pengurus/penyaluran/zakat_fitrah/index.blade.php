@@ -8,7 +8,8 @@
                 <h3><strong>Zakat Fitrah</strong></h3>
             </div>
             <div class="col-auto ms-auto text-end mt-n1">
-                <a href="{{ route('pengurus.penerimaanzakatfitrah.create') }}" class="btn btn-primary">Tambah Penyaluran</a>
+                <a href="{{ route('pengurus.penerimaanzakatfitrah.create') }}" class="btn btn-primary">Tambah
+                    Penyaluran</a>
             </div>
         </div>
         <!-- ============================================================== -->
@@ -63,7 +64,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="7">Total</th>
+                                        <th colspan="6">Total</th>
                                         <td><strong>{{ $totalKeseluruhan }} Kg</strong></td>
                                     </tr>
                                 </tfoot>

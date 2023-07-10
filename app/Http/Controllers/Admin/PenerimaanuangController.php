@@ -81,7 +81,6 @@ class PenerimaanuangController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'user_id' => 'required',
             'mustahiq_id' => 'required',
             'total_uang' => 'required',
             'ket' => 'nullable',

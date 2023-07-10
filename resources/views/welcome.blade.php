@@ -46,13 +46,11 @@
             <div class="contact-info d-flex align-items-center">
                 <i class="bi bi-envelope-fill"></i><a
                     href="mailto:masjid.baiturrahmah.km21@gmail.com">masjid.baiturrahmah.km21@gmail.com</a>
-                <i class="bi bi-phone-fill phone-icon"></i> +1 5589 55488 55
+                <i class="bi bi-phone-fill phone-icon"></i> 081521796126
             </div>
             <div class="social-links d-none d-md-block">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
             </div>
         </div>
     </section>
@@ -128,8 +126,8 @@
                                 diatur dalam UU No.23/2011 tentang pengelolaan zakat. Zakat maal harus sudah mencapai
                                 nishab (batas minimum) dan terbebas dari hutang serta kepemilikan telah mencapai 1 tahun
                                 (haul).</p>
-                            <a href="#about"
-                                class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
+                                More</a>
                         </div>
                     </div>
                 </div>
@@ -194,85 +192,49 @@
 
                 <div class="section-title">
                     <h2>Struktur Organisasi</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Struktur organisasi kami memberikan kejelasan dan tanggung jawab yang diperlukan untuk
+                        mempercepat kemajuan dan memenuhi harapan kami</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
-                            <img src="assets/img/team/team-1.jpg" alt="">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <p>
-                                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis
-                                quaerat qui aut aut aut
-                            </p>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <img src="{{ asset('Green/e.png') }}" alt="">
+                            <h4>Muhammad Fadlan</h4>
+                            <span>Sekertaris</span>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
-                            <img src="assets/img/team/team-2.jpg" alt="">
-                            <h4>Sarah Jhinson</h4>
-                            <span>Product Manager</span>
-                            <p>
-                                Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum
-                                rerum temporibus
-                            </p>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <img src="{{ asset('Green/g.png') }}" alt="">
+                            <h4>Muhammad Fahrezi</h4>
+                            <span>Kepala Pengurus Amil</span>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member">
-                            <img src="assets/img/team/team-3.jpg" alt="">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                            <p>
-                                Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum
-                                toro des clara
-                            </p>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
+                            <img src="{{ asset('Green/d.png') }}" alt="">
+                            <h4>Bayu Saputra</h4>
+                            <span>Bendahara</span>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </section><!-- End Team Section -->
-
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container">
 
                 <div class="section-title">
                     <h2>Contact</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Hubungi Kami Sekarang</p>
                 </div>
 
                 <div class="row">
 
-                    <div class="col-lg-5 d-flex align-items-stretch">
+                    <div class="col-lg-14 d-flex align-items-stretch">
                         <div class="info">
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
@@ -284,71 +246,24 @@
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>masjid.baiturrahmah.km21@gmail.com</p>
+                                <p><a href="mailto:musikdi9@gmail.com">masjid.baiturrahmah.km21@gmail.com</a></p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
+                                <p>081521796126</p>
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                        <form action="/contact" method="POST" role="form" class="php-email-form">
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" name="name" class="form-control" id="name"
-                                        required>
-                                </div>
-                                <div class="form-group col-md-6 mt-3 mt-md-0">
-                                    <label for="name">Your Email</label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <label for="name">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject" required>
-                            </div>
-                            <div class="form-group mt-3">
-                                <label for="name">Message</label>
-                                <textarea class="form-control" name="message" rows="10" required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
-                        </form>
-
-                    </div>
-
                 </div>
-
             </div>
         </section><!-- End Contact Section -->
-
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>Green</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi
-                placeat.</p>
-            <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
             <div class="copyright">
                 &copy; Copyright <strong><span>Green</span></strong>. All Rights Reserved
             </div>

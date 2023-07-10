@@ -63,7 +63,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="7">Total</th>
+                                        <th colspan="6">Total</th>
                                         <td><strong>Rp {{ number_format($totalKeseluruhan, 2) }}</strong></td>
                                     </tr>
                                 </tfoot>

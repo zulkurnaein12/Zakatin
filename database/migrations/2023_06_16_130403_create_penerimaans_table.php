@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('penerimaans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('mustahiq_id')->unsigned();
             $table->bigInteger('pembayaran_id')->unsigned()->nullable();
             $table->enum('jenja', ['Zakat Fitrah', 'Zakat Maal']);

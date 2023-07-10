@@ -27,19 +27,17 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <label for="jenis_zakat">Jenis Zakat</label>
-                            </div>
-                            <div class="col-lg-3">
-                                <select disabled class="form-select" name="jenja" id="floatingSelect"
-                                    aria-label="Floating label select example">
-                                    <option disabled> -- Choose --</option>
-                                    <option disabled value="Zakat Fitrah">Zakat Fitrah</option>
-                                    <option selected value="Zakat Maal">Zakat Maal</option>
-                                </select>
-                            </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-2">
+                            <label for="jenis_zakat">Jenis Zakat</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <select class="form-select" name="jenja" id="floatingSelect"
+                                aria-label="Floating label select example">
+                                <option disabled> -- Choose --</option>
+                                <option disabled value="Zakat Fitrah">Zakat Fitrah</option>
+                                <option selected value="Zakat Maal">Zakat Maal</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">

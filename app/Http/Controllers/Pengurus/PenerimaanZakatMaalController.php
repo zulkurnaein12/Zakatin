@@ -80,10 +80,9 @@ class PenerimaanZakatMaalController extends Controller
      */
     public function edit($id)
     {
-        $users = User::role('pengurus')->get();
         $mustahiqs = Mustahiq::all();
         $zakat = Penerimaan::find($id);
-        return view('pengurus.penyaluran.zakat_maal.edit', compact('zakat', 'users', 'mustahiqs'));
+        return view('pengurus.penyaluran.zakat_maal.edit', compact('zakat', 'mustahiqs'));
     }
 
     /**
@@ -96,7 +95,6 @@ class PenerimaanZakatMaalController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'user_id' => 'required',
             'mustahiq_id' => 'required',
             'jenja' => 'required',
             'total_uang' => 'required',

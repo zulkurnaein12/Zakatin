@@ -30,7 +30,7 @@ class MuzakkiSeeder extends Seeder
             ];
 
             $user = User::create($data);
-            $user->assignRole('muzakki');
+            $user->assignRole('pengurus');
         }
     }
 }

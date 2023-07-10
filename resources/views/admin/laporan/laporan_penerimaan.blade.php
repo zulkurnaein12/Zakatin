@@ -7,6 +7,9 @@
             <div class="col-auto d-none d-sm-block mb-3">
                 <h3><strong>Laporan Penerimaan Zakat</strong></h3>
             </div>
+            <div class="col-auto ms-auto text-end mt-n1">
+                <a href="{{ route('admin.pdf.export') }}" class="btn btn-success">Cetak Laporan</a>
+            </div>
         </div>
         <!-- ============================================================== -->
         <!-- Start Page Content -->

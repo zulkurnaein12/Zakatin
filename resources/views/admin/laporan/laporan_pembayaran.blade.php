@@ -8,7 +8,7 @@
                 <h3><strong>Laporan Pembayaran Zakat</strong></h3>
             </div>
             <div class="col-auto ms-auto text-end mt-n1">
-                <a href="{{ route('admin.pdf.generate') }}" class="btn btn-success">Generate PDF</a>
+                <a href="{{ route('admin.pdf.generate') }}" class="btn btn-success">Cetak Laporan</a>
             </div>
         </div>
         <!-- ============================================================== -->

@@ -10,7 +10,7 @@
             <div class="card-body">
                 <h4 class="card-title">Form edit Penyaluran</h4>
                 <form enctype="multipart/form-data" class="bg-white shadow-sm p-3"
-                    action="{{ route('pengurus.penerimaanzakatfitrah.update', [$zakat->id]) }}" method="POST">
+                    action="{{ route('admin.penerimaanberas.update', [$zakat->id]) }}" method="POST">
                     @csrf
                     @if (@$zakat)
                         @method('PUT')
@@ -33,17 +33,17 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-lg-2">
-                            <label for="jenis_zakat">Jenis Zakat</label>
+                            <label for="">Jenis Zakat</label>
                         </div>
                         <div class="col-lg-10">
                             <select class="form-select" name="jenja" id="floatingSelect"
                                 aria-label="Floating label select example">
                                 <option disabled> -- Choose --</option>
-                                <option value="Zakat Fitrah">Zakat Fitrah</option>
+                                <option selected value="Zakat Fitrah">Zakat Fitrah</option>
+                                <option disabled value="Zakat Maal">Zakat Maal</option>
                             </select>
                         </div>
                     </div>
-
                     <div class="row mb-3">
                         <label for="" class="col-sm-2 col-form-label">Total</label>
                         <div class="col-sm-10">

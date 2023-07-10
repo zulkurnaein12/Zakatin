@@ -107,14 +107,6 @@
                             </li>
                         </ul>
                     </li><!-- End Components Nav -->
-                    <li class="sidebar-item">
-                        <a class="sidebar-link {{ Request()->routeIs('admin.history.*') ? '' : 'collapsed' }}"
-                            href="#">
-                            <i class="align-middle" data-feather="clock"></i>
-                            <span>History</span>
-                        </a>
-                    </li>
-                    <!--End Dashboard Nav -->
                 </ul>
             </div>
         </nav>

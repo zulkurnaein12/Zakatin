@@ -108,6 +108,6 @@ class ZakatFitrahController extends Controller
     {
         $zakat = Pembayaran::findOrFail($id);
         $zakat->delete();
-        return redirect()->route('pengurus.zakafitrah.index', compact('zakat'));
+        return redirect()->route('pengurus.zakatfitrah.index', compact('zakat'));
     }
 }

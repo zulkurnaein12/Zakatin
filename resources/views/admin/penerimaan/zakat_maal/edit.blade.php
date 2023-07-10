@@ -10,7 +10,7 @@
             <div class="card-body">
                 <h4 class="card-title">Form edit Penyaluran</h4>
                 <form enctype="multipart/form-data" class="bg-white shadow-sm p-3"
-                    action="{{ route('admin.penerimaanuang.update', [$zakatmaal->id]) }}" method="POST">
+                    action="{{ route('admin.penerimaanuang.update', [$zakat->id]) }}" method="POST">
                     @csrf
                     @if (@$zakat)
                         @method('PUT')
@@ -25,7 +25,7 @@
                                 <option value="">Pilih Penerima</option>
                                 @foreach ($mustahiqs as $mustahiq)
                                     <option value="{{ $mustahiq->id }}"
-                                        {{ $mustahiq->id == $zakatmaal->mustahiq_id ? 'selected' : '' }}>
+                                        {{ $mustahiq->id == $zakat->mustahiq_id ? 'selected' : '' }}>
                                         {{ $mustahiq->nama }}</option>
                                 @endforeach
                             </select>
@@ -50,7 +50,7 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputText" name="total_uang" id=""
                                 required aria-describedby="helpId" placeholder="Total"
-                                value="{{ $zakatmaal->total_uang ?? '' }}">
+                                value="{{ $zakat->total_uang ?? '' }}">
                             @error('total')
                                 <div class="text-danger">{{ $message }}
                                 </div>
@@ -61,7 +61,7 @@
                         <label for="" class="col-sm-2 col-form-label">Keterangan</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputText" name="ket" id=""
-                                aria-describedby="helpId" placeholder="ket" value="{{ $zakatmaal->ket ?? '' }}">
+                                aria-describedby="helpId" placeholder="ket" value="{{ $zakat->ket ?? '' }}">
                             {{-- if error validate --}}
                             @error('ket')
                                 <div class="text-danger">{{ $message }}
@@ -73,7 +73,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="reset" class="btn btn-warning">Reset</button>
                         <a class="btn btn-success" name="" id=""
-                            href="{{ route('pengurus.penerimaanzakatmaal.index') }}">Back</a>
+                            href="{{ route('admin.penerimaanuang.index') }}">Back</a>
                     </div>
 
                 </form>

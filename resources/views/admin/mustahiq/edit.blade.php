@@ -45,29 +45,25 @@
                     @php
                         $jenkel = ['LAKI-LAKI', 'PEREMPUAN'];
                     @endphp
-                    <div class="form-group mb-3">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <label for="jenkel">Jenis Kelamin</label>
-                            </div>
-                            <div class="col-lg-9">
-                                <select class="form-select" name="jenkel" aria-label="Default select example"
-                                    value="{{ $mustahiq->jenkel ?? '' }}">
-                                    @foreach ($jenkel as $jen)
-                                        <option value="{{ $jen }}"
-                                            {{ $jen == $mustahiq->jenkel ? 'selected' : '' }}>
-                                            {{ $jen }}</option>
-                                    @endforeach
-                                </select>
-                                {{-- if error validate --}}
-                                @error('jenkel')
-                                    <div class="text-danger">{{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-2">
+                            <label for="jenkel">Jenis Kelamin</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <select class="form-select" name="jenkel" aria-label="Default select example"
+                                value="{{ $mustahiq->jenkel ?? '' }}">
+                                @foreach ($jenkel as $jen)
+                                    <option value="{{ $jen }}" {{ $jen == $mustahiq->jenkel ? 'selected' : '' }}>
+                                        {{ $jen }}</option>
+                                @endforeach
+                            </select>
+                            {{-- if error validate --}}
+                            @error('jenkel')
+                                <div class="text-danger">{{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
-
                     <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">No Telpon</label>
                         <div class="col-sm-10">
@@ -80,37 +76,35 @@
                             @enderror
                         </div>
                     </div>
-
                     @php
                         $kategori = ['Fakir', 'Miskin', 'Amil', 'Muallaf', 'Gharim', 'Riqab', 'Fisabilillah', 'Ibnu Sabil'];
                     @endphp
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <label for="kategori">Kategori</label>
-                            </div>
-                            <div class="col-lg-9 mb-3">
-                                <select class="form-select" name="kategori" aria-label="Default select example"
-                                    value="{{ $mustahiq->kategori ?? '' }}">
-                                    @foreach ($kategori as $kat)
-                                        <option value="{{ $kat }}"
-                                            {{ $kat == $mustahiq->kategori ? 'selected' : '' }}>
-                                            {{ $kat }}</option>
-                                    @endforeach
-                                </select>
-                                {{-- if error validate --}}
-                                @error('kategori')
-                                    <div class="text-danger">{{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label for="kategori">Kategori</label>
                         </div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="reset" class="btn btn-warning">Reset</button>
-                            <a class="btn btn-success" name="" id=""
-                                href="{{ route('admin.mustahiq.index') }}">Back</a>
+                        <div class="col-lg-10 mb-3">
+                            <select class="form-select" name="kategori" aria-label="Default select example"
+                                value="{{ $mustahiq->kategori ?? '' }}">
+                                @foreach ($kategori as $kat)
+                                    <option value="{{ $kat }}"
+                                        {{ $kat == $mustahiq->kategori ? 'selected' : '' }}>
+                                        {{ $kat }}</option>
+                                @endforeach
+                            </select>
+                            {{-- if error validate --}}
+                            @error('kategori')
+                                <div class="text-danger">{{ $message }}
+                                </div>
+                            @enderror
                         </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-warning">Reset</button>
+                        <a class="btn btn-success" name="" id=""
+                            href="{{ route('admin.mustahiq.index') }}">Back</a>
+                    </div>
 
                 </form>
 

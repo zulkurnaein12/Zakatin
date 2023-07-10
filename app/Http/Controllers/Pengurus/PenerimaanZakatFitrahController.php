@@ -33,6 +33,7 @@ class PenerimaanZakatFitrahController extends Controller
      */
     public function create()
     {
+
         $users = User::role('pengurus')->get();
         $mustahiqs = Mustahiq::all();
         return view('pengurus.penyaluran.zakat_fitrah.create', compact('users', 'mustahiqs'));
@@ -49,14 +50,25 @@ class PenerimaanZakatFitrahController extends Controller
         $data = $request->validate([
             'mustahiq_id' => 'required',
             'jenja' => 'required',
-            'total_beras' => 'required',
+            'total_beras' => 'required|numeric',
             'ket' => 'nullable',
         ]);
+
+        $totalKeseluruhan = Pembayaran::sum('total_beras') + $data['total_beras'];
+
+        if ($totalKeseluruhan < 3) {
+            alert()->error('Error', 'Total pembayaran zakat fitrah harus minimal 3 kg');
+            return redirect()->back()->withInput();
+        }
+
         $data['user_id'] = auth()->user()->id;
         $zakat = Penerimaan::create($data);
-        alert()->success('Succes', 'Penyaluran Zakat Fitrah Berhasil');
+
+        alert()->success('Success', 'Penyaluran Zakat Fitrah Berhasil');
         return redirect()->route('pengurus.penerimaanzakatfitrah.index', compact('zakat'));
     }
+
+
 
     /**
      * Display the specified resource.
@@ -76,10 +88,9 @@ class PenerimaanZakatFitrahController extends Controller
      */
     public function edit($id)
     {
-        $users = User::role('pengurus')->get();
         $mustahiqs = Mustahiq::all();
         $zakat = Penerimaan::find($id);
-        return view('pengurus.penyaluran.zakat_fitrah.edit', compact('zakat', 'users', 'mustahiqs'));
+        return view('pengurus.penyaluran.zakat_fitrah.edit', compact('zakat', 'mustahiqs'));
     }
 
     /**
@@ -92,7 +103,6 @@ class PenerimaanZakatFitrahController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'user_id' => 'required',
             'mustahiq_id' => 'required',
             'jenja' => 'required',
             'total_beras' => 'required',

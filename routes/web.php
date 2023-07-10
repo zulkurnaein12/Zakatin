@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\MustahiqController;
 use App\Http\Controllers\Admin\MuzakkiController;
 use App\Http\Controllers\Admin\PasswordController;
 use App\Http\Controllers\Admin\PDFController;
+use App\Http\Controllers\Admin\PDFpenerimaanController;
 use App\Http\Controllers\Admin\PenerimaanberasController;
 use App\Http\Controllers\Admin\PenerimaanuangController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ZakatFitrahController as AdminZakatFitrahController;
 use App\Http\Controllers\Admin\ZakatMaalController as AdminZakatMaalController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Muzakki\PasswordController as MuzakkiPasswordController;
 use App\Http\Controllers\Muzakki\PembayaranController;
@@ -43,9 +45,6 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home');
-});
 
 Auth::routes();
 
@@ -65,6 +64,7 @@ Route::middleware('role:admin')->name('admin.')->prefix('admin')->group(function
     Route::resource('penerimaanberas', PenerimaanberasController::class);
     Route::resource('penerimaanuang', PenerimaanuangController::class);
     Route::get('pdf/generate', [PDFController::class, 'generatePDF'])->name('pdf.generate');
+    Route::get('pdf/export', [PDFpenerimaanController::class, 'exportPDF'])->name('pdf.export');
 });
 
 Route::middleware('role:pengurus')->name('pengurus.')->prefix('pengurus')->group(function () {

@@ -69,7 +69,7 @@ class PenerimaanberasController extends Controller
     {
         $mustahiqs = Mustahiq::all();
         $zakat = Penerimaan::find($id);
-        return view('pengurus.penyaluran.zakat_fitrah.edit', compact('zakat', 'mustahiqs'));
+        return view('admin.penerimaan.zakat_fitrah.edit', compact('zakat', 'mustahiqs'));
     }
 
     /**
@@ -82,7 +82,6 @@ class PenerimaanberasController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'user_id' => 'required',
             'mustahiq_id' => 'required',
             'jenja' => 'required',
             'total_beras' => 'required',

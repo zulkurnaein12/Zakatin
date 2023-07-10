@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle">
-        <h1 class="mb-3">Zakat Fitrah</h1>
+        <h1 class="mb-3">Zakat Maal</h1>
     </div>
 
     <section class="section">
@@ -32,8 +32,8 @@
                             <div class="col-lg-2">
                                 <label for="jenis_zakat">Jenis Zakat</label>
                             </div>
-                            <div class="col-lg-3">
-                                <select disabled class="form-select" name="jenja" id="floatingSelect"
+                            <div class="col-lg-10">
+                                <select class="form-select" name="jenja" id="floatingSelect"
                                     aria-label="Floating label select example">
                                     <option disabled> -- Choose --</option>
                                     <option disabled value="Zakat Fitrah">Zakat Fitrah</option>
