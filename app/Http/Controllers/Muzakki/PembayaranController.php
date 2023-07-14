@@ -64,9 +64,4 @@ class PembayaranController extends Controller
         }
     }
 
-    public function invoice($id)
-    {
-        $pembayaran = Pembayaran::find($id);
-        return view('muzakki.pembayaran.detail', compact('pembayaran'));
-    }
 }

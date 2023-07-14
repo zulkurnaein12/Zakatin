@@ -86,5 +86,4 @@ Route::middleware('role:muzakki')->name('muzakki.')->prefix('muzakki')->group(fu
     Route::patch('/profile/{id}', [MuzakkiProfileController::class, 'update'])->name('updateprofile');
     Route::get('/password', [MuzakkiPasswordController::class, 'edit'])->name('password');
     Route::post('/password/update', [MuzakkiPasswordController::class, 'update'])->name('updatepassword');
-    Route::post('/invoice{id}', [PembayaranController::class, 'invoice'])->name('invoice');
 });
