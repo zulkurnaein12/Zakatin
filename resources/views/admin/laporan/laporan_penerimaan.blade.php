@@ -62,9 +62,11 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="2">Saldo Akhir Beras</th>
+                                        <th colspan="6">Saldo Akhir Beras</th>
                                         <td><strong>{{ $totalKeseluruhanBeras }} Kg</strong></td>
-                                        <th colspan="3">Saldo Akhir Uang</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6">Saldo Akhir Uang</th>
                                         <td><strong>Rp {{ number_format($totalKeseluruhanUang, 2) }}</strong></td>
                                     </tr>
                                 </tfoot>

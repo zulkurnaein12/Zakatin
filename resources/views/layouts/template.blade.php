@@ -102,7 +102,7 @@
                             </li>
                             <li>
                                 <a class="sidebar-link" href="{{ route('admin.penerimaan') }}">
-                                    <i class="align-middle" data-feather="arrow-right"></i><span>Data Penerimaan</span>
+                                    <i class="align-middle" data-feather="arrow-right"></i><span>Data Penyaluran</span>
                                 </a>
                             </li>
                         </ul>

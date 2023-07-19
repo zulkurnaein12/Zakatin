@@ -12,7 +12,7 @@ class LaporanPenerimaanController extends Controller
 {
     public function index()
     {
-        $zakats = Penerimaan::all();
+        $zakats = Penerimaan::orderBy('created_at', 'desc')->get();
         $totalBeras = Pembayaran::sum('total_beras');
         $totalUang = Pembayaran::sum('total_uang');
         $mustahiqs = Mustahiq::all();

@@ -54,10 +54,13 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="2">Total Beras Terkumpul</th>
+                                        <th colspan="6">Total Beras Yang Terkumpu:</th>
                                         <td><strong>{{ $totalBeras }} Kg</strong></td>
-                                        <th colspan="3">Total Uang Terkumpul</th>
-                                        <td><strong>Rp {{ number_format($totalUang, 2) }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="6">Total Uang Yang Terkumpu:</th>
+                                        <td><strong>Rp
+                                                {{ number_format($totalUang, 2) }}</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>

@@ -11,7 +11,7 @@ class LaporanPembayaranController extends Controller
 {
     public function index()
     {
-        $zakats = Pembayaran::all();
+        $zakats = Pembayaran::orderBy('created_at', 'desc')->get();
         $totalBeras = Pembayaran::sum('total_beras');
         $totalUang = Pembayaran::sum('total_uang');
         return view('admin.laporan.laporan_pembayaran', ['zakats' => $zakats, 'totalBeras' => $totalBeras, 'totalUang' => $totalUang]);

@@ -35,13 +35,13 @@
 
 <body>
 
-    <h1>Laporan Pembayaran Zakat</h1>
+    <h1>Laporan Penyaluran Zakat</h1>
 
     <table id="customers">
         <tr>
             <th th scope="col">No</th>
             <th th scope="col">Nama</th>
-            <th th scope="col">Tanggal Penerimaan</th>
+            <th th scope="col">Tanggal Penyaluran</th>
             <th th scope="col">Jenis Zakat</th>
             <th th scope="col">Total Beras</th>
             <th th scope="col">Total Uang</th>
@@ -66,11 +66,11 @@
         @endforeach
         <tfoot>
             <tr>
-                <th colspan="6">Total Beras Terkumpul</th>
+                <th colspan="6">Saldo Akhir Beras</th>
                 <td><strong>{{ $totalBeras }} Kg</strong></td>
             </tr>
             <tr>
-                <th colspan="6">Total Uang Terkumpul</th>
+                <th colspan="6">Saldo Akhir Uang</th>
                 <td><strong>Rp {{ number_format($totalUang, 2) }}</strong></td>
             </tr>
         </tfoot>
