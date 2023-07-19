@@ -17,7 +17,7 @@ class PenerimaanuangController extends Controller
      */
     public function index()
     {
-        $zakats = Penerimaan::where('jenja', 'Zakat Maal')->get();
+        $zakats = Penerimaan::where('jenja', 'Zakat Maal')->orderBy('created_at', 'desc')->get();
         $mustahiqs = Mustahiq::all();
         $total = Pembayaran::sum('total_uang');
         $title = 'Hapus Pembayaran!';

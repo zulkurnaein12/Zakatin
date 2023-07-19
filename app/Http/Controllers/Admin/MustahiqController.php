@@ -15,7 +15,7 @@ class MustahiqController extends Controller
      */
     public function index()
     {
-        $mustahiqs = Mustahiq::all();
+        $mustahiqs = Mustahiq::orderBy('created_at', 'desc')->get();
         $title = 'Hapus Mustahiq!';
         $text = "Apakah Anda Yakin Menghapus Data?";
         confirmDelete($title, $text);

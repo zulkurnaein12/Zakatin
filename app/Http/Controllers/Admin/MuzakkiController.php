@@ -15,7 +15,7 @@ class MuzakkiController extends Controller
      */
     public function index()
     {
-        $users = User::role('muzakki')->get();
+        $users = User::role('muzakki')->orderBy('created_at', 'desc')->get();
         $title = 'Hapus Muzakki!';
         $text = "Apakah Anda Yakin Menghapus Data?";
         confirmDelete($title, $text);

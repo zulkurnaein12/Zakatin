@@ -15,7 +15,7 @@ class ZakatFitrahController extends Controller
      */
     public function index()
     {
-        $zakats = Pembayaran::where('jenja', 'Zakat Fitrah')->get();
+        $zakats = Pembayaran::where('jenja', 'Zakat Fitrah')->orderBy('created_at', 'desc')->get();
         $total = Pembayaran::sum('total_beras');
         $title = 'Hapus Pembayaran!';
         $text = "Apakah Anda Yakin Menghapus Data?";

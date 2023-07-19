@@ -12,6 +12,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+        $zakats = Penerimaan::all();
         $muzakki = User::role('muzakki')->count();
         $pengurus = User::role('pengurus')->count();
         $mustahiq = Mustahiq::count();
@@ -19,6 +20,6 @@ class AdminController extends Controller
         $zakatmaal = Pembayaran::sum('total_uang');
         $penerimaanberas = Penerimaan::sum('total_beras');
         $penerimaanuang = Penerimaan::sum('total_uang');
-        return view('admin.dashboard', compact('muzakki', 'pengurus', 'mustahiq', 'zakatfit', 'zakatmaal', 'penerimaanberas', 'penerimaanuang',));
+        return view('admin.dashboard', compact('muzakki', 'pengurus', 'mustahiq', 'zakatfit', 'zakatmaal', 'penerimaanberas', 'penerimaanuang', 'zakats'));
     }
 }

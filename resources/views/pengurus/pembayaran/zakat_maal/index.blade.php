@@ -57,7 +57,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="6">Total</th>
+                                        <th colspan="2">Total Zakat Maal Terkumpul :</th>
                                         <td><strong>Rp {{ number_format($total, 2) }}</strong></td>
                                     </tr>
                                 </tfoot>

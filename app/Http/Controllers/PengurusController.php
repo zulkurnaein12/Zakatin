@@ -10,10 +10,11 @@ class PengurusController extends Controller
 {
     public function index()
     {
+        $zakats = Penerimaan::all();
         $zakatfit = Pembayaran::sum('total_beras');
         $zakatmaal = Pembayaran::sum('total_uang');
         $penerimaanberas = Penerimaan::sum('total_beras');
         $penerimaanuang = Penerimaan::sum('total_uang');
-        return view('pengurus.dashboard', compact('zakatfit', 'zakatmaal', 'penerimaanberas', 'penerimaanuang'));
+        return view('pengurus.dashboard', compact('zakatfit', 'zakatmaal', 'penerimaanberas', 'penerimaanuang', 'zakats'));
     }
 }

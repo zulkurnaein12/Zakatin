@@ -7,9 +7,32 @@
             <div class="col-auto d-none d-sm-block mb-3">
                 <h3><strong>Zakat Maal</strong></h3>
             </div>
-            <div class="col-auto ms-auto text-end mt-n1">
-                <a href="{{ route('pengurus.penerimaanzakatmaal.create') }}" class="btn btn-primary">Tambah Penyaluran</a>
-            </div>
+            @php
+                $totalKeseluruhan = $total;
+            @endphp
+            @foreach ($zakatmaals as $zakatmaal)
+                @php
+                    $totalKeseluruhan -= $zakatmaal->total_beras; // Inisialisasi dengan nilai total keseluruhan awal
+                @endphp
+            @endforeach
+            @if ($totalKeseluruhan >= 82956)
+                <div class="col-auto ms-auto text-end mt-n1">
+                    <a href="{{ route('pengurus.penerimaanzakatmaal.create') }}" class="btn btn-primary">Tambah Penyaluran</a>
+                </div>
+            @else
+                <div class="col-auto ms-auto text-end mt-n1">
+                    <button class="btn btn-primary" disabled>Tambah Penyaluran</button>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Total zakat Maal harus minimal Rp 82,956.00  untuk menambahkan penyaluran baru.',
+                        });
+                    });
+                </script>
+            @endif
         </div>
         <!-- ============================================================== -->
         <!-- Start Page Content -->
@@ -63,7 +86,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="6">Total</th>
+                                        <th colspan="6">Saldo Akhir</th>
                                         <td><strong>Rp {{ number_format($totalKeseluruhan, 2) }}</strong></td>
                                     </tr>
                                 </tfoot>

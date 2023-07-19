@@ -8,6 +8,7 @@ use App\Models\Pembayaran;
 use App\Models\Penerimaan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PenerimaanZakatFitrahController extends Controller
 {
@@ -18,7 +19,7 @@ class PenerimaanZakatFitrahController extends Controller
      */
     public function index()
     {
-        $zakats = Penerimaan::where('jenja', 'Zakat Fitrah')->get();
+        $zakats = Penerimaan::where('jenja', 'Zakat Fitrah')->orderBy('created_at', 'desc')->get();
         $total = Pembayaran::sum('total_beras');
         $title = 'Hapus Pembayaran!';
         $text = "Apakah Anda Yakin Menghapus Data?";
@@ -33,7 +34,6 @@ class PenerimaanZakatFitrahController extends Controller
      */
     public function create()
     {
-
         $users = User::role('pengurus')->get();
         $mustahiqs = Mustahiq::all();
         return view('pengurus.penyaluran.zakat_fitrah.create', compact('users', 'mustahiqs'));
@@ -53,16 +53,9 @@ class PenerimaanZakatFitrahController extends Controller
             'total_beras' => 'required|numeric',
             'ket' => 'nullable',
         ]);
-
-        $totalKeseluruhan = Pembayaran::sum('total_beras') + $data['total_beras'];
-
-        if ($totalKeseluruhan < 3) {
-            alert()->error('Error', 'Total pembayaran zakat fitrah harus minimal 3 kg');
-            return redirect()->back()->withInput();
-        }
-
         $data['user_id'] = auth()->user()->id;
         $zakat = Penerimaan::create($data);
+
 
         alert()->success('Success', 'Penyaluran Zakat Fitrah Berhasil');
         return redirect()->route('pengurus.penerimaanzakatfitrah.index', compact('zakat'));

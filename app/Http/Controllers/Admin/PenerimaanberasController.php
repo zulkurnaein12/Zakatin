@@ -18,7 +18,7 @@ class PenerimaanberasController extends Controller
      */
     public function index()
     {
-        $zakats = Penerimaan::where('jenja', 'Zakat Fitrah')->get();
+        $zakats = Penerimaan::where('jenja', 'Zakat Fitrah')->orderBy('created_at', 'desc')->get();
         $mustahiqs = Mustahiq::all();
         $total = Pembayaran::sum('total_beras');
         $title = 'Hapus Pembayaran!';

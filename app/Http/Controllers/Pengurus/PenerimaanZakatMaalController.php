@@ -18,7 +18,7 @@ class PenerimaanZakatMaalController extends Controller
      */
     public function index()
     {
-        $zakatmaals = Penerimaan::where('jenja', 'Zakat Maal')->get();
+        $zakatmaals = Penerimaan::where('jenja', 'Zakat Maal')->orderBy('created_at', 'desc')->get();
         $total = Pembayaran::sum('total_uang');
         $title = 'Hapus Pembayaran!';
         $text = "Apakah Anda Yakin Menghapus Data?";

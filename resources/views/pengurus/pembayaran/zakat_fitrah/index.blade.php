@@ -58,7 +58,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="6">Total</th>
+                                        <th colspan="6">Total Zakat Fitrah Terkumpul</th>
                                         <td><strong>{{ $total }} Kg</strong></td>
                                     </tr>
                                 </tfoot>
