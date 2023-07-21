@@ -36,7 +36,7 @@
 <body>
 
     <h1>Laporan Pembayaran Zakat</h1>
-
+    <h4>Periode: {{ $start_date }} hingga {{ $end_date }}</h4>
     <table id="customers">
         <tr>
             <th th scope="col">No</th>

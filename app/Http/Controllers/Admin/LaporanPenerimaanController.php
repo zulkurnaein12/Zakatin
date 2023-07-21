@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Mustahiq;
 use App\Models\Pembayaran;
 use App\Models\Penerimaan;
+use PDF;
 use Illuminate\Http\Request;
 
 class LaporanPenerimaanController extends Controller
@@ -16,6 +17,49 @@ class LaporanPenerimaanController extends Controller
         $totalBeras = Pembayaran::sum('total_beras');
         $totalUang = Pembayaran::sum('total_uang');
         $mustahiqs = Mustahiq::all();
-        return view('admin.laporan.laporan_penerimaan', ['zakats' => $zakats, 'totalBeras' => $totalBeras, 'totalUang' => $totalUang, 'mustahiqs' => $mustahiqs]);
+
+        return view('admin.laporan.laporan_penerimaan', [
+            'zakats' => $zakats,
+            'totalBeras' => $totalBeras,
+            'totalUang' => $totalUang,
+            'mustahiqs' => $mustahiqs,
+        ]);
+    }
+
+    public function filter(Request $request)
+    {
+        $totalBeras = Pembayaran::sum('total_beras');
+        $totalUang = Pembayaran::sum('total_uang');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
+        // Ambil data zakat berdasarkan rentang tanggal
+        $zakats = Penerimaan::whereBetween('created_at', [$start_date, $end_date])->orderBy('created_at', 'desc')->get();
+
+        // Simpan data hasil filter dalam session
+        $request->session()->put('zakats', $zakats);
+        $request->session()->put('totalBeras', $totalBeras);
+        $request->session()->put('totalUang', $totalUang);
+        $request->session()->put('start_date', $start_date);
+        $request->session()->put('end_date', $end_date);
+
+        return view('admin.laporan.laporan_penerimaan', compact('zakats', 'totalBeras', 'totalUang'));
+    }
+    public function exportPdf(Request $request)
+    {
+        // Ambil data dari session
+        $zakats = $request->session()->get('zakats');
+        $totalBeras = $request->session()->get('totalBeras');
+        $totalUang = $request->session()->get('totalUang');
+        $start_date = $request->session()->get('start_date');
+        $end_date = $request->session()->get('end_date');
+        // Load tampilan PDF menggunakan CSS dan HTML
+        $pdf = PDF::loadView('penerimaan', compact('zakats', 'totalBeras', 'totalUang', 'start_date', 'end_date'));
+
+        // Tetapkan nama file PDF, Anda dapat menyesuaikan nama sesuai keinginan Anda
+        $filename = 'laporan_penerimaan_zakat.pdf';
+
+        // Tetapkan header untuk mengunduh PDF
+        return $pdf->download($filename);
     }
 }

@@ -15,7 +15,7 @@
                     $totalKeseluruhan -= $zakat->total_beras; // Inisialisasi dengan nilai total keseluruhan awal
                 @endphp
             @endforeach
-            @if ($totalKeseluruhan >= 4)
+            @if ($totalKeseluruhan >= 3)
                 <div class="col-auto ms-auto text-end mt-n1">
                     <a href="{{ route('pengurus.penerimaanzakatfitrah.create') }}" class="btn btn-primary">Tambah
                         Penyaluran</a>

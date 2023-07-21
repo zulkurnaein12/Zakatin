@@ -34,9 +34,8 @@
 </head>
 
 <body>
-
     <h1>Laporan Penyaluran Zakat</h1>
-
+    <h4>Periode: {{ $start_date }} hingga {{ $end_date }}</h4>
     <table id="customers">
         <tr>
             <th th scope="col">No</th>
@@ -47,10 +46,14 @@
             <th th scope="col">Total Uang</th>
             <th th scope="col">Keterangan</th>
         </tr>
+        @php
+            $totalKeseluruhanBeras = $totalBeras;
+            $totalKeseluruhanUang = $totalUang; // Inisialisasi dengan nilai total keseluruhan awal
+        @endphp
         @foreach ($zakats as $zakat)
             <tr>
-                <td scope="row">{{ $loop->iteration }}</td>
-                <td>{{ $zakat->nama }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $zakat->mustahiqs->nama }}</td>
                 <td>{{ $zakat->created_at->format('d M Y') }}</td>
                 <td>{{ $zakat->jenja }}</td>
                 <td>
@@ -63,19 +66,24 @@
                 <td>Rp {{ number_format($zakat->total_uang, 2) }}</td>
                 <td>{{ $zakat->ket }}</td>
             </tr>
+            @php
+                $totalKeseluruhanBeras -= $zakat->total_beras;
+                $totalKeseluruhanUang -= $zakat->total_uang;
+            @endphp
         @endforeach
         <tfoot>
             <tr>
                 <th colspan="6">Saldo Akhir Beras</th>
-                <td><strong>{{ $totalBeras }} Kg</strong></td>
+                <td><strong>{{ $totalKeseluruhanBeras }} Kg</strong></td>
             </tr>
             <tr>
                 <th colspan="6">Saldo Akhir Uang</th>
-                <td><strong>Rp {{ number_format($totalUang, 2) }}</strong></td>
+                <td><strong>Rp {{ number_format($totalKeseluruhanUang, 2) }}</strong></td>
             </tr>
         </tfoot>
     </table>
 
+    </div>
 </body>
 
 </html>

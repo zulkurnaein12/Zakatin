@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\FilterController;
 use App\Http\Controllers\Admin\LaporanPembayaranController;
 use App\Http\Controllers\Admin\LaporanPenerimaanController;
 use App\Http\Controllers\Admin\MustahiqController;
@@ -60,11 +61,18 @@ Route::middleware('role:admin')->name('admin.')->prefix('admin')->group(function
     Route::resource('zakafitrah', AdminZakatFitrahController::class);
     Route::resource('zakatmaal', AdminZakatMaalController::class);
     Route::get('/laporan', [LaporanPembayaranController::class, 'index'])->name('laporan');
+    // routes/web.php or routes/api.php
+
+
+    Route::get('/filter', [LaporanPembayaranController::class, 'filter'])->name('admin.admin.filter');
+    Route::get('/export-pdf', [LaporanPembayaranController::class, 'exportPdf'])->name('admin.admin.pdf.export');
+
+
     Route::get('/laporanPenerimaan', [LaporanPenerimaanController::class, 'index'])->name('penerimaan');
+    Route::get('/laporan-penerimaan/filter', [LaporanPenerimaanController::class, 'filter'])->name('admin.filter');
+    Route::get('/laporan-penerimaan/export-pdf', [LaporanPenerimaanController::class, 'exportPdf'])->name('admin.pdf.export');
     Route::resource('penerimaanberas', PenerimaanberasController::class);
     Route::resource('penerimaanuang', PenerimaanuangController::class);
-    Route::get('pdf/generate', [PDFController::class, 'generatePDF'])->name('pdf.generate');
-    Route::get('pdf/export', [PDFpenerimaanController::class, 'exportPDF'])->name('pdf.export');
 });
 
 Route::middleware('role:pengurus')->name('pengurus.')->prefix('pengurus')->group(function () {

@@ -34,9 +34,11 @@ class PenerimaanZakatFitrahController extends Controller
      */
     public function create()
     {
+        $zakats = Penerimaan::where('jenja', 'Zakat Fitrah')->orderBy('created_at', 'desc')->get();
+        $total = Pembayaran::sum('total_beras');
         $users = User::role('pengurus')->get();
         $mustahiqs = Mustahiq::all();
-        return view('pengurus.penyaluran.zakat_fitrah.create', compact('users', 'mustahiqs'));
+        return view('pengurus.penyaluran.zakat_fitrah.create', compact('users', 'mustahiqs', 'zakats', 'total'));
     }
 
     /**
