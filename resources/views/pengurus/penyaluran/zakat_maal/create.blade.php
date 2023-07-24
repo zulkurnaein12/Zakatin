@@ -9,7 +9,16 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Form Penyaluran</h4>
-                <form action="{{ route('pengurus.penerimaanzakatmaal.store') }}" method="post" enctype="multipart/form-data">
+                @php
+                    $totalKeseluruhan = $total;
+                @endphp
+                @foreach ($zakats as $zakat)
+                    @php
+                        $totalKeseluruhan -= $zakat->total_uang;
+                    @endphp
+                @endforeach
+                <form action="{{ route('pengurus.penerimaanzakatmaal.store') }}" method="post" enctype="multipart/form-data"
+                    onsubmit="return handleSubmit()">
                     @csrf
                     <div class="row mb-3">
                         <div class="col-lg-2">
@@ -71,4 +80,35 @@
             </div>
         </div>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function handleSubmit() {
+            const totalKeseluruhan = {!! json_encode($totalKeseluruhan) !!};
+            const inputText = document.getElementById('inputText').value;
+            const totalUang = parseFloat(inputText);
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (isNaN(totalUang) || totalUang <= 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Total uang harus berupa angka positif!',
+                });
+                return false; // prevent form submission
+            }
+
+            if (totalUang > totalKeseluruhan) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Total uang melebihi total keseluruhan!',
+                });
+                return false; // prevent form submission
+            } else {
+                submitBtn.disabled = true; // disable submit button to prevent multiple submissions
+                return true; // allow form submission
+            }
+        }
+    </script>
 @endsection

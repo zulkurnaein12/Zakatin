@@ -82,12 +82,13 @@
             const totalKeseluruhan = {!! json_encode($totalKeseluruhan) !!};
             const inputText = document.getElementById('total_beras').value;
             const totalBeras = parseFloat(inputText);
+            const submitBtn = document.getElementById('submitBtn');
 
-            if (isNaN(totalBeras)) {
+            if (isNaN(totalBeras) || totalBeras <= 0) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Total beras harus berupa angka!',
+                    text: 'Total beras harus berupa angka positif!',
                 });
                 return false; // prevent form submission
             }
@@ -100,6 +101,7 @@
                 });
                 return false; // prevent form submission
             } else {
+                submitBtn.disabled = true; // disable submit button to prevent multiple submissions
                 return true; // allow form submission
             }
         }

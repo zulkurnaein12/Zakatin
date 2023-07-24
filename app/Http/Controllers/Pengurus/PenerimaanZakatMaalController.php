@@ -33,9 +33,11 @@ class PenerimaanZakatMaalController extends Controller
      */
     public function create()
     {
+        $zakats = Penerimaan::where('jenja', 'Zakat Maal')->orderBy('created_at', 'desc')->get();
+        $total = Pembayaran::sum('total_uang');
         $users = User::role('pengurus')->get();
         $mustahiqs = Mustahiq::all();
-        return view('pengurus.penyaluran.zakat_maal.create', compact('users', 'mustahiqs'));
+        return view('pengurus.penyaluran.zakat_maal.create', compact('users', 'mustahiqs', 'zakats', 'total'));
     }
 
     /**
