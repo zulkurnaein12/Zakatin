@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pembayaran;
 use App\Models\Penerimaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PembayaranController extends Controller
 {
@@ -36,7 +37,7 @@ class PembayaranController extends Controller
         // Membuat parameter untuk pembayaran Midtrans
         $params = array(
             'transaction_details' => array(
-                'order_id' => $pembayaran->id, // Menggunakan 'order_id' sebagai kunci, bukan 'pembayaran_id'
+                'order_id' => $pembayaran->phone, // Menggunakan 'order_id' sebagai kunci, bukan 'pembayaran_id'
                 'gross_amount' => $pembayaran->total_uang,
             ),
             'customer_details' => array(
@@ -55,13 +56,24 @@ class PembayaranController extends Controller
     public function callback(Request $request)
     {
         $serverKey = config('midtrans.server_key');
-        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
-        if ($hashed == $request->signature_key) {
+        $hashed = hash("sha512", $request->order_id . $request->status_code . number_format($request->gross_amount, 2, '.', '') . $serverKey);
+
+        if (hash_equals($hashed, $request->signature_key)) {
             if ($request->transaction_status == 'capture') {
                 $pembayaran = Pembayaran::find($request->order_id);
-                $pembayaran->update(['status' => 'paid']);
+
+                if ($pembayaran && $pembayaran->status !== 'paid') {
+                    $pembayaran->update(['status' => 'paid']);
+                    // Tambahkan logging untuk pencatatan
+                    Log::info('Transaction updated: ' . $pembayaran->id);
+                }
+            } else {
+                // Tambahkan penanganan status lain jika diperlukan
+                Log::info('Transaction status: ' . $request->transaction_status);
             }
+        } else {
+            // Tanda tangan tidak cocok, tambahkan logging atau tangani dengan benar
+            Log::error('Invalid signature for transaction: ' . $request->order_id);
         }
     }
-
 }
