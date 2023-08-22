@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="pagetitle">
-        <h1 class="mb-3">Zakat Fitrah</h1>
+        <h1 class="mb-3">Zakat Maal</h1>
     </div>
 
     <section class="section">
